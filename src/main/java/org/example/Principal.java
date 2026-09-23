@@ -44,7 +44,27 @@ public class Principal {
         // 3.2 - Remover João
         funcionarios.removeIf(f -> f.getNome().equals("João"));
 
-       
+        // 3.3 - Imprimir funcionários
+        DateTimeFormatter formatoData =
+                DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        NumberFormat formatoMoeda =
+                NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+
+        System.out.println("========== FUNCIONÁRIOS ==========");
+
+        for (Funcionario f : funcionarios) {
+            System.out.println("Nome: " + f.getNome());
+            System.out.println("Nascimento: "
+                    + f.getDataNascimento().format(formatoData));
+            System.out.println("Salário: "
+                    + formatoMoeda.format(f.getSalario()));
+            System.out.println("Função: " + f.getFuncao());
+            System.out.println();
+        }
+
+        
+            );
         }
     }
 }
